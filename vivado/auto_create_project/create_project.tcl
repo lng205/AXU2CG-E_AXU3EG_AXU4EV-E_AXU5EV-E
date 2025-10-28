@@ -66,7 +66,7 @@ create_bd_design $bdname
 
 open_bd_design $projpath/$projName.srcs/sources_1/bd/$bdname/$bdname.bd
 
-create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.3 zynq_ultra_ps_e_0
+create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.5 zynq_ultra_ps_e_0
 
 source $projpath/auto_create_project/ps_config.tcl
 set_ps_config zynq_ultra_ps_e_0
@@ -89,8 +89,8 @@ validate_bd_design
 save_bd_design		 
 
 make_wrapper -files [get_files $projpath/$projName.srcs/sources_1/bd/$bdname/$bdname.bd] -top
-# add_files -norecurse $projpath/$projName.srcs/sources_1/bd/$bdname/hdl/$bdWrapperName.v 
-add_files -norecurse [glob -nocomplain $projpath/$projName.srcs/sources_1/bd/$bdname/hdl/*.v]
+# add_files -norecurse $projpath/$projName.gen/sources_1/bd/$bdname/hdl/$bdWrapperName.v 
+add_files -norecurse [glob -nocomplain $projpath/$projName.gen/sources_1/bd/$bdname/hdl/*.v]
 
 puts $bdname
 append bdWrapperName $bdname "_wrapper"

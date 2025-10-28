@@ -168,7 +168,7 @@
  ] $frmbuf_wr_rst_gpio
 
   # Create instance: mipi_csi2_rx_subsyst_0, and set properties
-  set mipi_csi2_rx_subsyst_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mipi_csi2_rx_subsystem:5.0 mipi_csi2_rx_subsyst_0 ]
+  set mipi_csi2_rx_subsyst_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mipi_csi2_rx_subsystem:6.0 mipi_csi2_rx_subsyst_0 ]
   set_property -dict [ list \
    CONFIG.CLK_LANE_IO_LOC {W8} \
    CONFIG.CMN_NUM_LANES {2} \
@@ -225,7 +225,7 @@
   set rst_ps8_0_200M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps8_0_200M ]
 
   # Create instance: util_ds_buf_0, and set properties
-  set util_ds_buf_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_ds_buf:2.1 util_ds_buf_0 ]
+  set util_ds_buf_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_ds_buf:2.2 util_ds_buf_0 ]
 
   # Create instance: util_vector_logic_1, and set properties
   set util_vector_logic_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_1 ]
@@ -235,7 +235,7 @@
  ] $util_vector_logic_1
 
   # Create instance: v_frmbuf_wr_0, and set properties
-  set v_frmbuf_wr_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_frmbuf_wr:2.1 v_frmbuf_wr_0 ]
+  set v_frmbuf_wr_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_frmbuf_wr:3.0 v_frmbuf_wr_0 ]
   set_property -dict [ list \
    CONFIG.HAS_UYVY8 {1} \
    CONFIG.HAS_YUYV8 {1} \
@@ -246,7 +246,7 @@
  ] $v_frmbuf_wr_0
 
   # Create instance: v_proc_ss_0, and set properties
-  set v_proc_ss_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_proc_ss:2.2 v_proc_ss_0 ]
+  set v_proc_ss_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_proc_ss:2.3 v_proc_ss_0 ]
   set_property -dict [ list \
    CONFIG.C_COLORSPACE_SUPPORT {1} \
    CONFIG.C_MAX_COLS {1920} \
