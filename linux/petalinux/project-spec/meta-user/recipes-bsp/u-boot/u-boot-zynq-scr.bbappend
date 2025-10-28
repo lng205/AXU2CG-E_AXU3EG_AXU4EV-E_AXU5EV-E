@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://boot.cmd.default.initrd \
 	file://boot.cmd.default"
@@ -121,7 +121,7 @@ def append_baseaddr(d,offset):
     output = subprocess.check_output(cmd, shell=True).decode("utf-8")
     return output
 
-do_compile_prepend() {
+do_compile:prepend() {
 	sed -e 's/@@QSPI_KERNEL_OFFSET@@/${QSPI_KERNEL_OFFSET}/' \
 	    -e 's/@@NAND_KERNEL_OFFSET@@/${NAND_KERNEL_OFFSET}/' \
 	    -e 's/@@QSPI_KERNEL_SIZE@@/${QSPI_KERNEL_SIZE}/' \

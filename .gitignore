@@ -1,0 +1,59 @@
+# PetaLinux Build Artifacts
+linux/petalinux/build/
+linux/petalinux/images/
+linux/petalinux/pre-built/
+
+# Yocto/BitBake Components (auto-extracted)
+linux/petalinux/components/yocto/
+
+# PetaLinux temporary and generated files
+linux/petalinux/.petalinux/
+linux/petalinux/components/plnx_workspace/
+linux/petalinux/project-spec/configs/.statistics
+linux/petalinux/project-spec/configs/configs/
+linux/petalinux/project-spec/configs/rootfsconfigs/
+linux/petalinux/project-spec/configs/plnx_syshw_data
+
+# BitBake cache and logs
+*.cache
+*.log
+*.pyc
+*.pyo
+__pycache__/
+
+# Downloaded sources
+linux/petalinux/build/downloads/
+linux/petalinux/build/sstate-cache/
+linux/petalinux/build/tmp/
+
+# Vivado generated files
+vivado/.Xil/
+vivado/**/*.jou
+vivado/**/*.log
+vivado/**/*.str
+vivado/**/*.hbs
+vivado/**/*.dcp
+vivado/**/*.rpt
+vivado/*.gen/
+vivado/*.srcs/
+vivado/*.xpr
+vivado/dfx_runtime.txt
+vivado/auto_create_project/dfx_runtime.txt
+*.ip_user_files/
+*.cache/
+*.hw/
+*.runs/
+*.gen/
+*.sim/
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+.*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
