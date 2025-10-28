@@ -102,12 +102,23 @@ set_property top $bdWrapperName [current_fileset]
 add_files -fileset constrs_1  -copy_to $projpath/$projName.srcs/constrs_1/new -force -quiet [glob -nocomplain $src_dir/constraints/*.xdc]
 #add_files -fileset sim_1  -copy_to $projpath/$projName.srcs/sim_1/new -force -quiet [glob -nocomplain $src_dir/simulation/*.v]
 
+# Set number of jobs for parallel processing (adjust based on your CPU cores)
+# Reduced to avoid "ceam library" errors
+set runs_jobs 8
 
+# Launch synthesis first
+reset_run synth_1
+launch_runs synth_1 -jobs $runs_jobs
+wait_on_run synth_1
 
-# launch_runs impl_1 -to_step write_bitstream -jobs $runs_jobs
-# wait_on_run impl_1 
+# Then launch implementation and bitstream generation
+launch_runs impl_1 -to_step write_bitstream -jobs $runs_jobs
+wait_on_run impl_1 
 
-# write_hw_platform -fixed -force -include_bit -file $projpath/$bdWrapperName.xsa
+# Export hardware platform with bitstream included
+write_hw_platform -fixed -force -include_bit -file $projpath/$bdWrapperName.xsa
 
-# close_project
+puts "INFO: Hardware platform exported to $projpath/$bdWrapperName.xsa"
+
+close_project
 
